@@ -1,0 +1,25 @@
+
+.modal {
+  border: 2px solid red;
+  position:absolute ;
+  top:100px;
+left:20px;
+}
+
+#createTextBtn{
+cursor: pointer;
+
+}
+#container{
+ border:1px solid red;
+ position:relative;   
+}
+#myform {
+    border:3px solid blue;
+}
+#canvasDiv {
+    z-index: -1;
+}
+#myform input{
+    border:3px solid blue;
+}
