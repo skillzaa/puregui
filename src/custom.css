@@ -1,3 +1,40 @@
+#navBar {
+display: flex;
+flex-direction:row;
+margin:0;
+padding:0;
+padding-left: 30px;
+background-color: #286323;
+margin-top: 0px;
+}
+.navMenu {
+    width:250px;
+    border-radius: 10px;
+    background-color: #286323;
+    border:1px solid blue;
+    /* min-height: 300px; */
+    padding: 5px 1px;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+.navItem{
+    border :1px solid #537e4f;   
+    margin:4px 8px; 
+    padding:1px 10px;
+    border-radius: 5px;
+    background-color: #34802d;
+    color:aliceblue
+}
+.navItem:hover {
+    cursor: pointer;
+    border :1px solid red; 
+    color:red;
+    background-color: rgb(6, 34, 8); 
+
+
+}
 
 input {
 border: 1px solid blue;
@@ -44,9 +81,4 @@ input:hover {
   border: 4px solid red;
   flex-direction: column;
 left:20px;
-}
-
-#createTextBtn{
-cursor: pointer;
-
 }

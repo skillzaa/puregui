@@ -2,7 +2,7 @@
 export default class ElmObj {
 
 constructor(bilzaa){
-this.bilzaa = bilzaa;    
+this.bilzaa = bilzaa;
 this.mainDivElm = this.getMainDivElm();
 this.ids = [];
 }
