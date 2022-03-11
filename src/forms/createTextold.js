@@ -2,34 +2,39 @@ import Text from "./text.js";
 import ElmObj from "../ElmObj.js";
 
 
-const handler = (objs=[],defaultClickEvent)=>{
-let resp = {};
-resp.fontsize = 0;
-resp.content = "some text"; //this gets over written even if the value = ""
-resp.x = 0;
-resp.y = 0;
+const handler = (objs=[],bilzaa)=>{
+
+let fontsize = 0;
+let content = "";
+let x = 0;
+let y = 0;
 for (let i = 0; i < objs.length; i++) {
     const obj = objs[i];
     if (obj.id == "fontsize"){
-        resp.fontsize = obj.value;
+        fontsize = obj.value;
     }
     if (obj.id == "content"){
-        resp.content = obj.value;
+        content = obj.value;
     }
     if (obj.id == "x"){
-        resp.x = obj.value;
+        x = obj.value;
     }
     if (obj.id == "y"){
-        resp.y = obj.value;
+        y = obj.value;
     }
 }
-defaultClickEvent(resp)
+let t = new Text(content);
+t.fontSize = fontsize;
+t.x = x;
+t.y = y;
+bilzaa.add(t);
+bilzaa.draw();
 // console.log(fontsize);
 // console.log(content);
 }
 ///////////////////////////////////////////////////////
-export default function createText(defaultClickEvent){
-let elmobj = new ElmObj(defaultClickEvent);
+export default function createText(bilzaa){
+let elmobj = new ElmObj(bilzaa);
     elmobj.label("Add Font");
     elmobj.label("Content");
     elmobj.textInput("content");
