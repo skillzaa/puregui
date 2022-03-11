@@ -1,67 +1,88 @@
 
 export default class UiBuilder {
 
-constructor(args={}){
-this.mainDivElm = this.getMainDivElm();
+constructor(defaultClickEvent=null){
+this.id = this.randomId();    
+if (defaultClickEvent == null){defaultClickEvent = ()=>console.log("defaultClickEvent")}
+this.defaultClickEvent = defaultClickEvent ;    
+this.parentDiv = this.customDialogDivColumn();
 this.ids = [];
 }
 
-textInput(id){
+textInput(name){
     let content = document.createElement("input"); 
+    content.name = name;
     content.type = "text";
-    content.id = id;
-    this.ids.push(id);
-    this.mainDivElm.appendChild(content);
+    content.id = this.randomId();
+    this.ids.push(content.id);
+    this.parentDiv.appendChild(content);
 }
-numberInput(id){
+numberInput(name){
     let content = document.createElement("input"); 
+    content.name = name;
     content.type = "number";
-    content.id = id;
-    this.ids.push(id);
-    this.mainDivElm.appendChild(content);
+    content.id = this.randomId();
+    this.ids.push(content.id);
+    this.parentDiv.appendChild(content);
 }
-actionBtn(handler){
+submitFormBtn(defaultClickEvent,caption="ok",className = "btn"){
+//create a button
 let btnDyn = document.createElement("button");
-btnDyn.innerHTML = "Ok";
-btnDyn.className = "btn";
+btnDyn.innerHTML = caption;;
+btnDyn.className = className;
 
+// default behaviour of actionButton
     btnDyn.onclick = (e)=> {
 let resp = [];
 for (let i = 0; i < this.ids.length; i++) {
     let o = {};
     const id = this.ids[i];
-    let value = document.getElementById(id).value;
-    o.id =  id;
-    o.value =  value;
+    let elm = document.getElementById(id);
+    o.id =  elm.id;
+    o.name =  elm.name;
+    o.value =  elm.value;
     resp.push(o);
 }
-handler(resp);
-// console.log("resp",resp);
-        // /////////////////////
+//--now send the data to handler
+defaultClickEvent(resp);
+//stop further action and remove this ui module this.parentDiv
         e.preventDefault();
-        this.mainDivElm.parentNode.removeChild(this.mainDivElm);
-      };
+        this.parentDiv.parentNode.removeChild(this.parentDiv);
+};
 // oper onclick event handler hai      
-this.mainDivElm.appendChild(btnDyn);    
+this.parentDiv.appendChild(btnDyn);    
 }
- label(title="Label Title"){
+
+
+label(title="Label Title"){
 let label = document.createElement("Label"); 
 label.innerHTML = title;
 label.className = "lbl";
-this.mainDivElm.appendChild(label);
+this.parentDiv.appendChild(label);
 }
-getMainDivElm(id="mainDivId",className="mainDiv"){
+customDialogDivColumn(className="navMenu"){
     let md = document.createElement("div");
-    md.style.width = "400px";
+    md.style.width = "50%";
+    md.style.position = "absolute";
     md.style.top = `${parseInt((window.innerHeight /2) -100)}px`;
     md.style.left = `${parseInt((window.innerWidth /2) - 200 )}px`;
-    md.id = id;
+    //the id of this div is that of object
+    md.id = this.id;
     md.className = className;
-    document.body.appendChild(md);
+    document.body.appendChild(md); // this is a custom specifc div
     return md;
 }
 hr(){
     let hr = document.createElement("hr");
-this.mainDivElm.appendChild(hr);
+this.parentDiv.appendChild(hr);
 }
+randomId(){
+return Math.floor(Math.random() * 1000000000000);    
 }
+display(){
+    this.parentDiv.style.display = "flex";
+    this.parentDiv.style.flexDirection = "column";
+}
+////////////////////////////////
+}//class ends
+

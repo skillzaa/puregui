@@ -10,11 +10,32 @@ this.bilzaa.draw();
 }
 
 addText(resp={}){
-    if (resp.content == ""){resp.content = "Text...!"}
-    let t = new Text(resp.content);
-    t.fontSize = resp.fontSize |50;
-    t.x = resp.x | 10;
-    t.y = resp.y | 10;
+let rez = {};
+    for (let i = 0; i < resp.length; i++) {
+        const item = resp[i];
+    
+    if (item.name == "fontSize"){
+        rez.fontSize = item.value;    
+    }
+    if (item.name == "x"){
+        rez.x = item.value;    
+    }
+    if (item.name == "y"){
+        rez.y = item.value;    
+    }
+    if (item.name == "content"){
+        if (item.value == ""){
+            rez.content = "Text...!";
+        }else {
+            rez.content = item.value;
+        }
+    }
+        
+    }
+    let t = new Text(rez.content);
+    t.fontSize = rez.fontSize |50;
+    t.x = rez.x | 10;
+    t.y = rez.y | 10;
     this.bilzaa.add(t);
     this.bilzaa.draw();   
 }

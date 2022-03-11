@@ -18,7 +18,7 @@ numberInput(id){
     let content = document.createElement("input"); 
     content.type = "number";
     content.id = id;
-    this.ids.push(id);
+    this.ids.push(id); ///mmmmmmmm
     this.mainDivElm.appendChild(content);
 }
 actionBtn(handler){
