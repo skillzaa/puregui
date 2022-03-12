@@ -8,7 +8,10 @@ background-color: #286323;
 margin-top: 0px;
 }
 .navMenu {
-    flex-direction: row;
+    /* display: flex; */
+    text-align: center;
+    flex-direction: column;
+    padding: 4px 4px;
     width:250px;
     border-radius: 10px;
     background-color: #286323;
@@ -34,18 +37,17 @@ margin-top: 0px;
     color:red;
     background-color: rgb(6, 34, 8); 
 }
-.navItem:blur
 .menuBtns{
+    width:90%; 
+    padding: 2px 2px;
     border :1px solid #537e4f;  
     margin:4px 4px; 
     padding:1px 10px;
     border-radius: 5px;
     background-color: #34802d;
     color:aliceblue;
-    width:100%; 
 }
 .menuBtns:hover {
-    width:110%; 
     cursor: pointer;
     border :1px solid red; 
     color:red;

@@ -9,7 +9,7 @@ this.bilzaa.init();
 this.bilzaa.draw();
 }
 
-addText(resp={}){
+addText(resp=[]){
 let rez = {};
     for (let i = 0; i < resp.length; i++) {
         const item = resp[i];
@@ -40,4 +40,28 @@ let rez = {};
     this.bilzaa.draw();   
 }
 
+settings(resp=[]){
+    let rez = {};
+    for (let i = 0; i < resp.length; i++) {
+        const item = resp[i];
+    
+    if (item.name == "backgroundColor"){
+        rez.backgroundColor = item.value;    
+    }
+    if (item.name == "canvasWidth"){
+        rez.canvasWidth = item.value;    
+    }
+    if (item.name == "canvasHeight"){
+        rez.canvasHeight = item.value;    
+    }
+        
+    }
+    ////////////////////////////////
+    this.bilzaa.canvasWidth = rez.canvasWidth; 
+    this.bilzaa.canvasHeight = rez.canvasHeight; 
+    this.bilzaa.background.color = rez.backgroundColor; 
+    this.bilzaa.init();   
+    this.bilzaa.draw();   
 }
+
+}//class
