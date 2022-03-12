@@ -3,15 +3,19 @@ import UiBuilder from "../uiBuilder/uiBuilder.js";
 ///////////////////////////////////////////////////////
 export default function settings(defaultClickEvent){
 let elmobj = new UiBuilder(defaultClickEvent);
-    elmobj.label("Settings");
+    elmobj.titleLabel("Settings");
+    
     elmobj.label("canvas width");
-    elmobj.numberInput("canvasWidth");
+    elmobj.numberInput("canvasWidth",800);
+    
     elmobj.label("canvas height");
-    elmobj.numberInput("canvasHeight");
-    elmobj.label("background color");
-    elmobj.textInput("backgroundColor");
+    elmobj.numberInput("canvasHeight",350);
 
-    elmobj.submitFormBtn();
+    elmobj.label("background color");
+    elmobj.textInput("backgroundColor","beige");
+
+    elmobj.submitFormBtn();2
+    elmobj.cancelFormBtn();
     elmobj.display();
 
 }

@@ -23,6 +23,9 @@ let rez = {};
     if (item.name == "y"){
         rez.y = item.value;    
     }
+    if (item.name == "fontColor"){
+        rez.fontColor = item.value;    
+    }
     if (item.name == "content"){
         if (item.value == ""){
             rez.content = "Text...!";
@@ -36,6 +39,7 @@ let rez = {};
     t.fontSize = rez.fontSize |50;
     t.x = rez.x | 10;
     t.y = rez.y | 10;
+    t.fontColor = rez.fontColor;
     this.bilzaa.add(t);
     this.bilzaa.draw();   
 }

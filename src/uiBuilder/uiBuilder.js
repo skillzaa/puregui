@@ -1,4 +1,6 @@
 
+
+// This will create HTML Elements and return them in a wrapper div
 export default class UiBuilder {
 
 constructor(defaultClickEvent=null){
@@ -9,29 +11,29 @@ this.parentDiv = this.customDialogDivColumn();
 this.ids = [];
 }
 
-textInput(name){
+textInput(name,defaultValue = ""){
     let content = document.createElement("input"); 
     content.name = name;
+    content.value = defaultValue;
     content.type = "text";
     content.id = this.randomId();
     this.ids.push(content.id);
     this.parentDiv.appendChild(content);
 }
-numberInput(name){
+numberInput(name,defaultValue = 0){
     let content = document.createElement("input"); 
     content.name = name;
+    content.value = defaultValue;
     content.type = "number";
     content.id = this.randomId();
     this.ids.push(content.id);
     this.parentDiv.appendChild(content);
 }
-submitFormBtn(caption="ok",className = "btn"){
+submitFormBtn(caption="Submit",className = "btn"){
 //create a button
 let btnDyn = document.createElement("button");
 btnDyn.innerHTML = caption;;
 btnDyn.className = className;
-
-// default behaviour of actionButton
     btnDyn.onclick = (e)=> {
 let resp = [];
 for (let i = 0; i < this.ids.length; i++) {
@@ -43,16 +45,23 @@ for (let i = 0; i < this.ids.length; i++) {
     o.value =  elm.value;
     resp.push(o);
 }
-//--now send the data to handler
 this.defaultClickEvent(resp);
-//stop further action and remove this ui module this.parentDiv
         e.preventDefault();
         this.parentDiv.parentNode.removeChild(this.parentDiv);
 };
-// oper onclick event handler hai      
+// must      
+this.parentDiv.appendChild(btnDyn);       
+}
+cancelFormBtn(caption="Cancel",className = "btnCancel"){
+let btnDyn = document.createElement("button");
+btnDyn.innerHTML = caption;;
+btnDyn.className = className;
+    btnDyn.onclick = (e)=> {
+        e.preventDefault();
+        this.parentDiv.parentNode.removeChild(this.parentDiv);
+};
 this.parentDiv.appendChild(btnDyn);    
 }
-
 
 label(title="Label Title"){
 let label = document.createElement("Label"); 
@@ -60,7 +69,13 @@ label.innerHTML = title;
 label.className = "lbl";
 this.parentDiv.appendChild(label);
 }
-customDialogDivColumn(className="navMenu"){
+titleLabel(title="Label Title"){
+let label = document.createElement("Label"); 
+label.innerHTML = title;
+label.className = "titleLabel";
+this.parentDiv.appendChild(label);
+}
+customDialogDivColumn(className="dialogueOuterDiv"){
     let md = document.createElement("div");
     md.style.width = "50%";
     md.style.position = "absolute";
