@@ -21,7 +21,7 @@ margin-top: 0px;
     display: none;
 }
 .navItem{
-    border :1px solid #537e4f;   
+    border :1px solid #537e4f;  
     margin:4px 8px; 
     padding:1px 10px;
     border-radius: 5px;
@@ -33,9 +33,25 @@ margin-top: 0px;
     border :1px solid red; 
     color:red;
     background-color: rgb(6, 34, 8); 
-
-
 }
+.navItem:blur
+.menuBtns{
+    border :1px solid #537e4f;  
+    margin:4px 4px; 
+    padding:1px 10px;
+    border-radius: 5px;
+    background-color: #34802d;
+    color:aliceblue;
+    width:100%; 
+}
+.menuBtns:hover {
+    width:110%; 
+    cursor: pointer;
+    border :1px solid red; 
+    color:red;
+    background-color: rgb(6, 34, 8); 
+}
+
 /* canvasContainer */
 
 #canvasContainer {

@@ -1,26 +1,8 @@
-import Text from "./text.js";
-import ElmObj from "../ElmObj.js";
 
-const handler = (objs=[],bilzaa)=>{
-
-for (let i = 0; i < objs.length; i++) {
-    const obj = objs[i];
-    if (obj.id == "canvasWidth"){
-        bilzaa.canvasWidth = obj.value;
-    }
-    if (obj.id == "canvasHeight"){
-        bilzaa.canvasHeight = obj.value;
-    }    
-    if (obj.id == "backgroundColor"){
-        bilzaa.background.color = obj.value;
-    }    
-}
-bilzaa.init();
-bilzaa.draw();
-}
+import UiBuilder from "../uiBuilder/uiBuilder.js";
 ///////////////////////////////////////////////////////
-export default function settings(bilzaa){
-let elmobj = new ElmObj(bilzaa);
+export default function settings(defaultClickEvent){
+let elmobj = new UiBuilder(defaultClickEvent);
     elmobj.label("Settings");
     elmobj.label("canvas width");
     elmobj.numberInput("canvasWidth");
@@ -29,7 +11,8 @@ let elmobj = new ElmObj(bilzaa);
     elmobj.label("background color");
     elmobj.textInput("backgroundColor");
 
-    elmobj.actionBtn(handler);
+    elmobj.submitFormBtn();
+    elmobj.display();
 
 }
 ///////////////////////////////////////////////////////

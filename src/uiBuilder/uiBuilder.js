@@ -25,7 +25,7 @@ numberInput(name){
     this.ids.push(content.id);
     this.parentDiv.appendChild(content);
 }
-submitFormBtn(defaultClickEvent,caption="ok",className = "btn"){
+submitFormBtn(caption="ok",className = "btn"){
 //create a button
 let btnDyn = document.createElement("button");
 btnDyn.innerHTML = caption;;
@@ -44,7 +44,7 @@ for (let i = 0; i < this.ids.length; i++) {
     resp.push(o);
 }
 //--now send the data to handler
-defaultClickEvent(resp);
+this.defaultClickEvent(resp);
 //stop further action and remove this ui module this.parentDiv
         e.preventDefault();
         this.parentDiv.parentNode.removeChild(this.parentDiv);
