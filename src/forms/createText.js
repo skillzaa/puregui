@@ -14,7 +14,7 @@ elmobj.titleLabel("Add Font");
     elmobj.numberInput("fontSize",50);
 
     elmobj.label("Font Color");
-    elmobj.textInput("fontColor","black");
+    elmobj.colorPicker("fontColor","black");
 
     elmobj.label("X");
     elmobj.numberInput("x",50);

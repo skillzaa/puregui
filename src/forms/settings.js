@@ -12,7 +12,8 @@ let elmobj = new UiBuilder(defaultClickEvent);
     elmobj.numberInput("canvasHeight",350);
 
     elmobj.label("background color");
-    elmobj.textInput("backgroundColor","beige");
+    // elmobj.textInput("backgroundColor","beige");
+    elmobj.colorPicker("backgroundColor");
 
     elmobj.submitFormBtn();2
     elmobj.cancelFormBtn();

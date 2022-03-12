@@ -11,6 +11,15 @@ this.parentDiv = this.customDialogDivColumn();
 this.ids = [];
 }
 
+colorPicker(name,defaultValue = "#ff0000"){
+    let content = document.createElement("input"); 
+    content.name = name;
+    content.value = defaultValue;
+    content.type = "color";
+    content.id = this.randomId();
+    this.ids.push(content.id);
+    this.parentDiv.appendChild(content);
+}
 textInput(name,defaultValue = ""){
     let content = document.createElement("input"); 
     content.name = name;
