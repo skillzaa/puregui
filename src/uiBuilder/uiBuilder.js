@@ -11,7 +11,7 @@ this.parentDiv = this.customDialogDivColumn();
 this.ids = [];
 }
 
-colorPicker(name,defaultValue = "#ff0000"){
+colorPicker(name,defaultValue = "#EFEEE3"){
     let content = document.createElement("input"); 
     content.name = name;
     content.value = defaultValue;

@@ -13,7 +13,7 @@ let elmobj = new UiBuilder(defaultClickEvent);
 
     elmobj.label("background color");
     // elmobj.textInput("backgroundColor","beige");
-    elmobj.colorPicker("backgroundColor");
+    elmobj.colorPicker("backgroundColor","#EFEEE3");
 
     elmobj.submitFormBtn();2
     elmobj.cancelFormBtn();

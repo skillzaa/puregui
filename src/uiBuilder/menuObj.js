@@ -33,9 +33,8 @@ this.innerDiv.style.top = `${(this.menuDiv.getBoundingClientRect().bottom + 5)}p
  });   
 }//constructor
 
-addBtn(id,handler,fnTorun, title="click me"){
+addBtn( title="click me",handler,fnTorun){
     let newBtnDiv = document.createElement("div");
-    // newBtnDiv.id = id; //may be ok
     newBtnDiv.innerText = title;
     newBtnDiv.className = "menuBtns";
     newBtnDiv.addEventListener("click",function(){

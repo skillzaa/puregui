@@ -19,8 +19,8 @@ let bilzaaWrapper = new BilzaaWrapper();
 
 let menuObj = new MenuObj();
 
-menuObj.addBtn(213,createText,bilzaaWrapper.addText.bind(bilzaaWrapper),"Add Text");
+menuObj.addBtn("Add Text",createText,bilzaaWrapper.addText.bind(bilzaaWrapper));
 
 
-menuObj.addBtn(546,settings,bilzaaWrapper.settings.bind(bilzaaWrapper),"Settings");
+menuObj.addBtn("Settings",settings,bilzaaWrapper.settings.bind(bilzaaWrapper));
 
