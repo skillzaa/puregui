@@ -1,4 +1,4 @@
-import { Component, Style ,XAlignment, YAlignment } from "../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
+import { Component, Style, XAlignment, YAlignment } from "../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 // import TextTemplates from "./textTemplates.js";
 // export { TextTemplates };
 //this is simple text / word

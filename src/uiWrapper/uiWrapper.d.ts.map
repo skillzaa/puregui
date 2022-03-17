@@ -1,0 +1,1 @@
+{"version":3,"file":"uiWrapper.d.ts","sourceRoot":"","sources":["../../typescript/uiWrapper/uiWrapper.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,SAAS;IAC9B,GAAG,EAAE,WAAW,CAAC;IACjB,QAAQ,EAAE,OAAO,CAAC;gBAEN,GAAG,EAAE,WAAW;IAe5B,SAAS,CAAC,OAAO,KAAA;IAUjB,KAAK,CAAC,OAAO,KAAA;IAUb,SAAS;CAMR"}

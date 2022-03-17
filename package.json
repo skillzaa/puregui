@@ -1,9 +1,7 @@
 {
   "script": {
-    "tailwind": "tailwindcss build -i ./src/input.css -o ./src/styles.css --watch"
   },
   "dependencies": {
-    "bilzaa2d": "^0.3.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +16,8 @@
     "url": "https://github.com/skillzaa/puregui/issues"
   },
   "homepage": "https://github.com/skillzaa/puregui#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
 }

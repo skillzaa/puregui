@@ -1,0 +1,1 @@
+{"version":3,"file":"addFacade.d.ts","sourceRoot":"","sources":["../../../typescript/bilzaa2d/addFacade/addFacade.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,SAAS,EAAW,IAAI,EAAC,MAAM,gBAAgB,CAAC;AAGxD,OAAO,gBAAgB,MAAM,uBAAuB,CAAC;AAErD,MAAM,CAAC,OAAO,OAAO,SAAS;IAC9B,OAAO,CAAC,UAAU,CAAc;IAChC,SAAS,EAAE,gBAAgB,CAAC;gBAEhB,KAAK,EAAE,SAAS,EAAE;IAK9B,IAAI,IAAG,IAAI;CAMV"}
