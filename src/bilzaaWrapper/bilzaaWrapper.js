@@ -1,53 +1,81 @@
 import { Bilzaa2d } from "../../src/bilzaa030/index.js";
 // import Text from "../text.js";
 export default class BilzaaWrapper {
-    constructor() {
-        this.selectedComp = null;
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.flagDrag = false;
+        this.selected = null;
+        this.canvas.addEventListener("click", this.mouseClick.bind(this));
+        this.canvas.addEventListener("mousedown", this.mouseDown.bind(this));
+        this.canvas.addEventListener("mouseup", this.mouseUp.bind(this));
+        this.canvas.addEventListener("mousemove", this.mouseMove.bind(this));
         this.bilzaa = new Bilzaa2d("bilzaa");
         this.bilzaa.init();
         // this.bilzaa.add
         this.bilzaa.draw();
     }
     addText(resp = []) {
-        // let rez = extractValues(resp,["fontSize","content","fontColor","x","y"]);
+        let rez = extractValues(resp, ["fontSize", "content", "fontColor", "x", "y"]);
+        let t = this.bilzaa.add.text("Some");
         // let t = new Text(chq(rez.content,"Some Text",true));
-        let t = this.bilzaa.add.textTempl.allVisible();
-        t.d.x = 100;
-        t.d.y = 100;
-        // t.fontSize = chq(rez.fontSize,50,true);
-        // t.x = chq(rez.x,50,true);
-        // t.y = chq(rez.y,50,true);
-        // t.fontColor = chq(rez.fontColor,"#ff0000",true);
-        // this.bilzaa.add(t);
+        // t.d.content = rez.content;
+        t.d.content = rez.content;
+        t.d.fontSize = parseInt(chq(rez.fontSize, 50, true));
+        // t.d.fontSize = 50;
+        t.d.x = parseInt(chq(rez.x, 50, true));
+        t.d.y = parseInt(chq(rez.y, 50, true));
+        t.d.fontColor = chq(rez.fontColor, "#ff0000", true);
+        // t.d.fontColor = "#ff0000";
         this.bilzaa.draw();
     }
     settings(resp = []) {
-        let rez = extractValues(resp, ["backgroundColor", "canvasWidth", "canvasHeight"]);
+        let rez = extractValues(resp, ["backgroundColor", "canvasvasWidth", "canvasvasHeight"]);
         ////////////////////////////////
-        this.bilzaa.canvasWidth = chq(rez.canvasWidth, 800, true);
-        this.bilzaa.canvasHeight = chq(rez.canvasHeight, 350, true);
+        this.bilzaa.canvasvasWidth = chq(rez.canvasvasWidth, 800, true);
+        this.bilzaa.canvasvasHeight = chq(rez.canvasvasHeight, 350, true);
         this.bilzaa.background.color = chq(rez.backgroundColor, "#EFEEE3", true);
         this.bilzaa.init();
         this.bilzaa.draw();
     }
     //----------ui function
-    click(e) {
-        let can = document.getElementById("bilzaa");
-        //@ts-expect-error
-        var rect = can.getBoundingClientRect();
+    mouseClick(e) {
+        // console.log("click");
+        var rect = this.canvas.getBoundingClientRect();
         let x = e.clientX - rect.left;
         let y = e.clientY - rect.top;
-        console.log(this.bilzaa.chqCollision(x, y));
+        let sel = this.bilzaa.chqCollision(x, y);
+        if (sel == null) {
+            console.log("nothing selected..clear");
+            this.selected = null;
+        }
+        else {
+            console.log("selected component id:", sel.id);
+            this.selected = sel;
+            this.selected.d.fontColor = "red";
+            this.bilzaa.draw();
+        }
     }
-    mousemove(e) {
-        // console.log("x",x);
-        let can = document.getElementById("bilzaa");
-        var rect = can.getBoundingClientRect();
+    mouseMove(e) {
+        // console.log("mousemove");
+        if (this.selected == null) {
+            return;
+        }
+        var rect = this.canvas.getBoundingClientRect();
         let x = e.clientX - rect.left;
         let y = e.clientY - rect.top;
-        this.bilzaa.comps[0].d.x = x;
-        this.bilzaa.comps[0].d.y = y;
+        this.selected.d.x = x;
+        this.selected.d.y = y;
         this.bilzaa.draw();
+    }
+    mouseUp(e) {
+        this.flagDrag == true;
+        // console.log("mouseUp");   
+    }
+    mouseDown(e) {
+        if (this.selected !== null) {
+            this.flagDrag == true;
+        }
+        // console.log("mouseDown");   
     }
 } //class
 function extractValues(resp, arr = []) {

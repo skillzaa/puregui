@@ -1,5 +1,4 @@
 import BilzaaWrapper from "./bilzaaWrapper/bilzaaWrapper.js";
-import UiWrapper from "./uiWrapper/uiWrapper.js";
 // import testMenu from "./menus/testMenu.js";
 // import UiBuilder from "./uiBuilder/uiBuilder.js";
 import MenuObj from "./uiBuilder/menuObj.js";
@@ -14,17 +13,19 @@ import settings from "./forms/settings.js";
 //     }
 //     return color;
 //   }
-let bilzaaWrapper = new BilzaaWrapper();
-let c = document.getElementById("bilzaa");
-if (c == null) {
-    throw new Error("canvas not found");
+try {
+    let c = document.getElementById("bilzaa");
+    if (c == null) {
+        throw new Error("canvas not found");
+    }
+    else {
+        let bilzaaWrapper = new BilzaaWrapper(c);
+        let menuObj = new MenuObj();
+        menuObj.addBtn("Add Text", createText, bilzaaWrapper.addText.bind(bilzaaWrapper));
+        menuObj.addBtn("Settings", settings, bilzaaWrapper.settings.bind(bilzaaWrapper));
+    }
 }
-else {
-    let uiWrapper = new UiWrapper(c);
-    uiWrapper.click(bilzaaWrapper.click.bind(bilzaaWrapper));
-    uiWrapper.mousemove(bilzaaWrapper.mousemove.bind(bilzaaWrapper));
+catch (_a) {
+    throw new Error("canvas element not found");
 }
 ///////////////////----Menus
-let menuObj = new MenuObj();
-menuObj.addBtn("Add Text", createText, bilzaaWrapper.addText.bind(bilzaaWrapper));
-menuObj.addBtn("Settings", settings, bilzaaWrapper.settings.bind(bilzaaWrapper));
