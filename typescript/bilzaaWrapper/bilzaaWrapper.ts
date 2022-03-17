@@ -1,4 +1,4 @@
-import {Bilzaa2d, IDrawable} from "../../src/bilzaa030/index.js";
+import {Bilzaa2d, IDrawable} from "../../src/bilzaa031/index.js";
 // import Text from "../text.js";
 
 
@@ -7,10 +7,12 @@ export default class BilzaaWrapper{
     selected : IDrawable | null;
     canvas :HTMLElement;
     flagDrag :boolean;
+    flagGrab :boolean;
 
 constructor(canvas :HTMLElement){
 this.canvas = canvas;
 this.flagDrag = false;
+this.flagGrab = false;
 this.selected = null;
 this.canvas.addEventListener("click",this.mouseClick.bind(this));    
 this.canvas.addEventListener("mousedown",this.mouseDown.bind(this));    
@@ -38,6 +40,15 @@ let t = this.bilzaa.add.text("Some");
     this.bilzaa.draw();   
 }
 
+globals(resp=[]){
+// let rez = extractValues(resp,["toggleGrap"]);    
+// if (rez.toggleGrap == "on"){
+//     this.flagGrab = true;
+// }   else {
+//     this.flagGrab = true;
+// }
+this.bilzaa.draw();  
+}
 settings(resp=[]){
 let rez = extractValues(resp,["backgroundColor","canvasvasWidth","canvasvasHeight"]);    
    

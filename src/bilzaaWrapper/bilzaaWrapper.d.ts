@@ -1,11 +1,13 @@
-import { Bilzaa2d, IDrawable } from "../../src/bilzaa030/index.js";
+import { Bilzaa2d, IDrawable } from "../../src/bilzaa031/index.js";
 export default class BilzaaWrapper {
     bilzaa: Bilzaa2d;
     selected: IDrawable | null;
     canvas: HTMLElement;
     flagDrag: boolean;
+    flagGrab: boolean;
     constructor(canvas: HTMLElement);
     addText(resp?: never[]): void;
+    globals(resp?: never[]): void;
     settings(resp?: never[]): void;
     mouseClick(e: MouseEvent): void;
     mouseMove(e: MouseEvent): void;

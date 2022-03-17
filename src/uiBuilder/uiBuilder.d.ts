@@ -1,5 +1,6 @@
 export default class UiBuilder {
     constructor(defaultClickEvent?: null);
+    checkBox(name: any, defaultValue?: boolean): void;
     colorPicker(name: any, defaultValue?: string): void;
     textInput(name: any, defaultValue?: string): void;
     numberInput(name: any, defaultValue?: number): void;

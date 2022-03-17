@@ -1,10 +1,9 @@
 import BilzaaWrapper from "./bilzaaWrapper/bilzaaWrapper.js";
 
-// import testMenu from "./menus/testMenu.js";
-// import UiBuilder from "./uiBuilder/uiBuilder.js";
 import MenuObj from "./uiBuilder/menuObj.js";
 import createText from "./forms/createText.js"
 import settings from "./forms/settings.js";
+import globals from "./forms/globals.js";
 
 // const randomColor = Math.floor(Math.random()*16777215).toString(16);
 // function getRandomColor() {
@@ -24,10 +23,10 @@ if (c== null){
     let menuObj = new MenuObj();
 menuObj.addBtn("Add Text",createText,bilzaaWrapper.addText.bind(bilzaaWrapper));
 menuObj.addBtn("Settings",settings,bilzaaWrapper.settings.bind(bilzaaWrapper));
+menuObj.addBtn("Globals",globals,bilzaaWrapper.globals.bind(bilzaaWrapper));
 
 }
 } catch {
     throw new Error("canvas element not found");
     
 }
-///////////////////----Menus

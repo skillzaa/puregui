@@ -1,9 +1,10 @@
-import { Bilzaa2d } from "../../src/bilzaa030/index.js";
+import { Bilzaa2d } from "../../src/bilzaa031/index.js";
 // import Text from "../text.js";
 export default class BilzaaWrapper {
     constructor(canvas) {
         this.canvas = canvas;
         this.flagDrag = false;
+        this.flagGrab = false;
         this.selected = null;
         this.canvas.addEventListener("click", this.mouseClick.bind(this));
         this.canvas.addEventListener("mousedown", this.mouseDown.bind(this));
@@ -26,6 +27,15 @@ export default class BilzaaWrapper {
         t.d.y = parseInt(chq(rez.y, 50, true));
         t.d.fontColor = chq(rez.fontColor, "#ff0000", true);
         // t.d.fontColor = "#ff0000";
+        this.bilzaa.draw();
+    }
+    globals(resp = []) {
+        // let rez = extractValues(resp,["toggleGrap"]);    
+        // if (rez.toggleGrap == "on"){
+        //     this.flagGrab = true;
+        // }   else {
+        //     this.flagGrab = true;
+        // }
         this.bilzaa.draw();
     }
     settings(resp = []) {

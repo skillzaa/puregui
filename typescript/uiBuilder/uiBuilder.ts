@@ -11,6 +11,18 @@ this.parentDiv = this.customDialogDivColumn();
 this.ids = [];
 }
 
+
+
+checkBox(name,defaultValue = true){
+    let content = document.createElement("input"); 
+    content.name = name;
+    content.checked = defaultValue;
+    content.type = "checkbox";
+    content.id = this.randomId();
+    this.ids.push(content.id);
+    this.parentDiv.appendChild(content);
+}
+
 colorPicker(name,defaultValue = "#EFEEE3"){
     let content = document.createElement("input"); 
     content.name = name;
