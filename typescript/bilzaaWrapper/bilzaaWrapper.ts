@@ -20,6 +20,7 @@ this.canvas.addEventListener("mouseup",this.mouseUp.bind(this));
 this.canvas.addEventListener("mousemove",this.mouseMove.bind(this));    
 
 this.bilzaa = new Bilzaa2d("bilzaa");
+this.bilzaa.frameEnd = 600;
 this.bilzaa.init();
 // this.bilzaa.add
 this.bilzaa.draw();

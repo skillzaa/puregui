@@ -171,8 +171,12 @@ left:20px;
     /* display: none; */
 }
 
-#frameDiv {
+#framediv {
+    width : 20%;
+    margin-left: 40px;
     padding-left: 40px;
-    font-size: x-large;
-    
+    border : 1px solid #c2f0be; 
+    font-size:22px;
+    background-color: #166310;
+    color: aliceblue;
 }
