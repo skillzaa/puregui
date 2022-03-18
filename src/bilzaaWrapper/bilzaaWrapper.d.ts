@@ -1,4 +1,4 @@
-import { Bilzaa2d, IDrawable } from "../../src/bilzaa031/index.js";
+import { Bilzaa2d, IDrawable } from "../../src/bilzaa032/index.js";
 export default class BilzaaWrapper {
     bilzaa: Bilzaa2d;
     selected: IDrawable | null;

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./typescript/styles.css" rel="stylesheet">
+    <!-- <link href="./typescript/styles.css" rel="stylesheet"> -->
     <link href="./typescript/custom.css" rel="stylesheet">
 </head>
 <body>
@@ -18,7 +18,6 @@
 
 
 <br/>
-<script type="module" src="./src/index.js"></script>
 
 <script>
 // document.getElementById("bilzaa").addEventListener("mousemove",function(e){
@@ -31,9 +30,17 @@
 // console.log("x,y",Math.floor(x),Math.floor(y));
 // });
 /////////////////////
-
 </script>
 
+<div id="controlsDiv">
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <button id="playBtn">Play</button>
+    
+    <div id="framediv">0</div>
+    <input type="range" min="1" max="100" value="50" id="theslider" >
 
+</div>
+<script type="module" src="./src/index.js"></script>
 </body>
 </html>

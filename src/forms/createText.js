@@ -13,6 +13,10 @@ export default function createText(defaultClickEvent) {
     elmobj.numberInput("x", 50);
     elmobj.label("Y");
     elmobj.numberInput("y", 50);
+    elmobj.label("Frame Start");
+    elmobj.numberInput("frameStart", 0);
+    elmobj.label("Frame End");
+    elmobj.numberInput("frameEnd", 5000);
     elmobj.submitFormBtn();
     elmobj.cancelFormBtn();
     elmobj.display();

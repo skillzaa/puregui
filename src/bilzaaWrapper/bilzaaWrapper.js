@@ -1,4 +1,4 @@
-import { Bilzaa2d } from "../../src/bilzaa031/index.js";
+import { Bilzaa2d } from "../../src/bilzaa032/index.js";
 // import Text from "../text.js";
 export default class BilzaaWrapper {
     constructor(canvas) {
@@ -16,10 +16,12 @@ export default class BilzaaWrapper {
         this.bilzaa.draw();
     }
     addText(resp = []) {
-        let rez = extractValues(resp, ["fontSize", "content", "fontColor", "x", "y"]);
+        let rez = extractValues(resp, ["fontSize", "content", "fontColor", "x", "y",
+            "frameStart", "frameEnd"]);
         let t = this.bilzaa.add.text("Some");
         // let t = new Text(chq(rez.content,"Some Text",true));
-        // t.d.content = rez.content;
+        t.frameStart = rez.frameStart;
+        t.frameEnd = rez.frameEnd;
         t.d.content = rez.content;
         t.d.fontSize = parseInt(chq(rez.fontSize, 50, true));
         // t.d.fontSize = 50;
@@ -27,6 +29,7 @@ export default class BilzaaWrapper {
         t.d.y = parseInt(chq(rez.y, 50, true));
         t.d.fontColor = chq(rez.fontColor, "#ff0000", true);
         // t.d.fontColor = "#ff0000";
+        console.log("t", t);
         this.bilzaa.draw();
     }
     globals(resp = []) {
@@ -56,12 +59,17 @@ export default class BilzaaWrapper {
         let sel = this.bilzaa.chqCollision(x, y);
         if (sel == null) {
             console.log("nothing selected..clear");
-            this.selected = null;
+            if (this.selected !== null) {
+                this.selected.d.flagDrawBoundingRectangle = false;
+                ;
+                this.selected = null;
+                this.bilzaa.draw();
+            }
         }
         else {
             console.log("selected component id:", sel.id);
             this.selected = sel;
-            this.selected.d.fontColor = "red";
+            this.selected.d.flagDrawBoundingRectangle = true;
             this.bilzaa.draw();
         }
     }
